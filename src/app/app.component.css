@@ -1,0 +1,46 @@
+.main {
+    height: 100vh;
+    display: flex
+}
+
+.header {
+    padding: 0px 25px;
+}
+
+.navbar {
+    height: 100vh;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .menu {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .menu .item {
+    list-style-type: none;
+    list-style: none;
+    width: 100%;
+    display: flex;
+}
+
+.navbar .menu .item a {
+    text-decoration: none;
+    color: black;
+    flex: 1;
+    padding: 8px 0px 8px 25px;
+}
+
+.navbar .menu .item .active {
+    text-decoration: none;
+    color: blue;
+}
+
+.content {
+    height: 100vh;
+}
