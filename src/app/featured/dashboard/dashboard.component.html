@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Searh for developers</h1>
+    <div class="search-wrapper">
+        <form class="form" [formGroup]="searchForm" (ngSubmit)="onSearch(searchBox.value)">
+            <input #searchBox (input)="onSearch(searchBox.value)" type="text" placeholder="Search" class="input"
+                formControlName="term" />
+            <button class="button">
+                <img src="/assets/search-svgrepo-com.svg" />
+            </button>
+        </form>
+        <div class="autocomplete" [class.active]="true">
+            <ul class="suggestions">
+                <li class="suggestion-item" *ngFor="let suggestion of suggestions$ | async">
+                    {{ suggestion.fullname }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <h3>Popular developers</h3>
+    </div>
+    <div>
+        <ul>
+            <li *ngFor="let developer of developers">
+                {{ developer.fullname }}
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+.container {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    position: relative;
+}
+
+.search-wrapper {
+    padding: 15px;
+    position: relative;
+}
+
+.input {
+    padding: 10px;
+    font-size: large;
+    min-width: 400px;
+}
+
+.button {
+    padding: 10px;
+    font-size: large;
+}
+
+.button img {
+    padding: 0px 15px;
+    height: 16px;
+    width: 16px;
+}
+
+.autocomplete {
+    top: 65px;
+    position: absolute;
+    height: max-content;
+    background-color: white;
+    width: 425px;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.autocomplete .suggestions {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.autocomplete .suggestions .suggestion-item {
+    list-style-type: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.autocomplete .suggestions .suggestion-item:hover {
+    background-color: gainsboro;
+}
