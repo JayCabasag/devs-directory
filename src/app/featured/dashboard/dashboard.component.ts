@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
     })
     this.suggestions$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
+      debounceTime(500),
 
       // ignore new term if same as previous term
       distinctUntilChanged(),
@@ -40,6 +40,9 @@ export class DashboardComponent implements OnInit {
       // switch to new search observable each time the term changes
       switchMap((term: string) => this.developersService.searchDeveloper(term)),
     );
+    this.suggestions$.subscribe((suggestions: Developer[]) => {
+      this.hasSuggestions = suggestions.length > 0
+    })
   }
 
   searchForm = this.formBuilder.group({
@@ -51,28 +54,7 @@ export class DashboardComponent implements OnInit {
     console.log(this.searchForm.value?.term)
   }
 
+  onSearchBlur(): void {
+    this.hasSuggestions = false
+  }
 }
-
-
-// onBlurSearch(): void {
-//   console.log(this.searchForm.value?.term)
-//   this.suggestions = []
-//   this.hasSugggestions = false
-// }
-
-// onFocusSearch(): void {
-//   console.log(this.searchForm.value?.term)
-//   this.suggestions = ['Option 1', 'Option 2', 'Option 3']
-//   this.hasSugggestions = true
-// }
-
-// onSuggestionClick(suggestion: string): void {
-//   this.searchForm.patchValue({ term: suggestion })
-//   console.log(this.searchForm.value?.term)
-// }
-
-// onSearch(): void {
-//   console.log(this.searchForm.value?.term)
-//   this.suggestions = []
-//   this.hasSugggestions = false
-// }

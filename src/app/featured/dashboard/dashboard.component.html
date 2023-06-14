@@ -3,12 +3,12 @@
     <div class="search-wrapper">
         <form class="form" [formGroup]="searchForm" (ngSubmit)="onSearch(searchBox.value)">
             <input #searchBox (input)="onSearch(searchBox.value)" type="text" placeholder="Search" class="input"
-                formControlName="term" />
+                formControlName="term" (blur)="onSearchBlur()" />
             <button class="button">
                 <img src="/assets/search-svgrepo-com.svg" />
             </button>
         </form>
-        <div class="autocomplete" [class.active]="true">
+        <div class="autocomplete" [class.active]="hasSuggestions">
             <ul class="suggestions">
                 <li class="suggestion-item" *ngFor="let suggestion of suggestions$ | async">
                     {{ suggestion.fullname }}
